@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Walks & Lawns | Enterprise Snow Removal</title>
+    <meta name="description" content="Premium snow removal subscription for West Edmonton. Reliable, unlimited clearing with enterprise-grade service.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        display: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                            950: '#082f49',
+                        },
+                        accent: {
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                        }
+                    },
+                    boxShadow: {
+                        'glass': '0 8px 32px 0 rgba(31, 38, 135, 0.37)',
+                        'glow': '0 0 40px rgba(14, 165, 233, 0.3)',
+                        'card-hover': '0 20px 40px -10px rgba(0,0,0,0.3)',
+                    },
+                    animation: {
+                        'snow-parallax': 'snowParallax 25s linear infinite',
+                        'fade-in-up': 'fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        snowParallax: {
+                            '0%': { backgroundPosition: '0 0' },
+                            '100%': { backgroundPosition: '0 100vh' },
+                        },
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { 
+            font-feature-settings: "cv11", "ss01"; 
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+    </style>
+</head>
+<body class="bg-brand-950 text-white antialiased selection:bg-brand-500 selection:text-white">
+    <div class="relative min-h-screen w-full font-sans overflow-hidden bg-brand-950">
+        <!-- Background Layers -->
+        <div class="fixed inset-0 z-0">
+            <div class="absolute inset-0 bg-gradient-to-b from-brand-950 via-[#0a1f35] to-brand-950"></div>
+            <!-- Ambient Glows -->
+            <div class="absolute top-[-20%] left-[-10%] w-[60%] h-[60%] bg-brand-600/10 rounded-full blur-[140px] opacity-40 mix-blend-screen"></div>
+            <div class="absolute bottom-[-20%] right-[-10%] w-[60%] h-[60%] bg-brand-400/5 rounded-full blur-[140px] opacity-30 mix-blend-screen"></div>
+            
+            <!-- Snow Pattern -->
+            <div 
+              class="absolute inset-0 opacity-[0.15] pointer-events-none animate-snow-parallax"
+              style="background-image: url('{{ snow_bg_image|safe }}'); background-repeat: repeat;"
+            ></div>
+        </div>
+
+        <!-- Main Container -->
+        <div class="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-8 flex flex-col min-h-screen">
+            {% include 'core/includes/navbar.html' %}
+            
+            <main class="flex-grow flex items-center py-12 lg:py-20">
+                 {% block content %}{% endblock %}
+            </main>
+
+            {% include 'core/includes/footer.html' %}
+        </div>
+    </div>
+</body>
+</html>

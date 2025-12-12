@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- PRIMARY SEO - HIGH CONVERSION -->
+    <title>Walks & Lawns | West Edmonton Snow Removal & Lawn Care</title>
+    <meta name="title" content="Walks & Lawns | West Edmonton Snow Removal & Lawn Care">
+    <meta name="description" content="Stop shoveling. Start living. The #1 automated snow removal subscription for West Edmonton. Unlimited clearing, flat monthly rate, and zero contracts.">
+    <meta name="keywords" content="Snow removal West Edmonton, Lawn care Edmonton, Walks and Lawns, Snow clearing subscription, Lewis Estates snow removal, Glastonbury snow removal, The Hamptons Edmonton landscaping, Winter maintenance Edmonton">
+    <meta name="author" content="Walks & Lawns Ltd.">
+    <meta name="theme-color" content="#0f172a">
+    <meta name="robots" content="index, follow">
+
+    <!-- OPEN GRAPH / FACEBOOK / IMESSAGE (The "Wow" Factor) -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://myground.ca/">
+    <meta property="og:site_name" content="Walks & Lawns">
+    <meta property="og:locale" content="en_CA">
+    
+    <!-- High CTR Title & Desc for Previews -->
+    <meta property="og:title" content="❄️ Never Shovel Again. (West Edmonton Exclusive)">
+    <meta property="og:description" content="Unlimited snow removal. Automated dispatch. One flat rate. See if your neighborhood is eligible inside.">
+    
+    <!-- Premium Preview Image (Optimized for 1200x630) -->
+    <meta property="og:image" content="https://images.unsplash.com/photo-1483323868615-1888e5e786b4?q=80&w=1200&h=630&auto=format&fit=crop">
+    <meta property="og:image:alt" content="A pristine, snow-covered landscape representing peace of mind.">
+
+    <!-- TWITTER CARD -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://myground.ca/">
+    <meta property="twitter:title" content="❄️ Never Shovel Again. (West Edmonton Exclusive)">
+    <meta property="twitter:description" content="Unlimited snow removal. Automated dispatch. One flat rate. Check availability now.">
+    <meta property="twitter:image" content="https://images.unsplash.com/photo-1483323868615-1888e5e786b4?q=80&w=1200&h=630&auto=format&fit=crop">
+
+    <!-- STRUCTURED DATA (Google Rich Results) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Walks & Lawns",
+      "image": "https://images.unsplash.com/photo-1483323868615-1888e5e786b4?q=80&w=1200&h=630&auto=format&fit=crop",
+      "@id": "https://myground.ca",
+      "url": "https://myground.ca",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Edmonton",
+        "addressRegion": "AB",
+        "addressCountry": "CA"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 53.5444,
+        "longitude": -113.5444
+      },
+      "areaServed": [
+        { "@type": "Place", "name": "West Edmonton" },
+        { "@type": "Place", "name": "Lewis Estates" },
+        { "@type": "Place", "name": "The Hamptons" },
+        { "@type": "Place", "name": "Glastonbury" },
+        { "@type": "Place", "name": "Granville" }
+      ],
+      "description": "Premium subscription-based snow removal and lawn care for West Edmonton homeowners. Automated service based on weather triggers.",
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ],
+        "opens": "00:00",
+        "closes": "23:59"
+      }
+    }
+    </script>
+
+    <!-- DYNAMIC FAVICON (Branded Blue Snowflake) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%2338bdf8%22>❄️</text></svg>">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        display: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        },
+                        accent: {
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                        }
+                    },
+                    boxShadow: {
+                        'glass': '0 8px 32px 0 rgba(31, 38, 135, 0.37)',
+                        'glow': '0 0 20px rgba(14, 165, 233, 0.5)',
+                    },
+                    animation: {
+                        'snow-parallax': 'snowParallax 20s linear infinite',
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        snowParallax: {
+                            '0%': { backgroundPosition: '0 0' },
+                            // SVG pattern is 200px high; matching this ensures seamless loop
+                            '100%': { backgroundPosition: '0 200px' },
+                        },
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-feature-settings: "cv11", "ss01"; }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.1",
+    "react-dom/client": "https://esm.sh/react-dom@^19.2.1/client",
+    "react/": "https://esm.sh/react@^19.2.1/",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.1/",
+    "@google/genai": "https://esm.sh/@google/genai"
+  }
+}
+</script>
+</head>
+<body class="bg-[#0f172a] text-white antialiased selection:bg-brand-500 selection:text-white">
+    <div id="root"></div>
+    <script type="module" src="./index.tsx"></script>
+</body>
+</html>

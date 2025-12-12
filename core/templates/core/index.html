@@ -1,0 +1,524 @@
+
+{% extends 'core/base.html' %}
+
+{% block content %}
+<div class="w-full grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+    
+    <!-- Marketing Content (Hero) -->
+    <div class="flex flex-col justify-center animate-fade-in-up">
+        <!-- Weather Widget Container -->
+        <div id="weather-widget" onclick="toggleWeatherBlog()" class="inline-flex items-center gap-4 bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-2 pr-5 mb-8 shadow-2xl shadow-brand-900/20 transition-all hover:bg-white/15 hover:scale-[1.02] hover:shadow-glow cursor-pointer group hidden select-none">
+            <div id="weather-icon-bg" class="relative flex items-center justify-center w-12 h-12 rounded-xl bg-slate-700/50 text-2xl shadow-inner border border-white/10">
+                <span id="weather-emoji" class="drop-shadow-md">🌥️</span>
+            </div>
+            <div class="flex flex-col">
+                <div class="flex items-center gap-2">
+                    <span id="weather-temp" class="text-white font-display font-bold text-xl tracking-tight">--°C</span>
+                    <span id="weather-status" class="text-[10px] uppercase tracking-wider font-bold text-white bg-brand-500/80 px-2 py-0.5 rounded-full shadow-sm animate-pulse-slow hidden">
+                        Snow Active
+                    </span>
+                </div>
+                <div class="flex items-center gap-1.5">
+                    <span id="weather-desc" class="text-xs font-medium text-brand-100/90 group-hover:text-white transition-colors">West Edmonton Live Status</span>
+                    <svg class="w-3 h-3 text-brand-400 opacity-0 group-hover:opacity-100 transition-opacity -rotate-45" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex flex-col mb-10 relative z-10">
+            <h2 class="font-sans font-extralight text-2xl sm:text-3xl md:text-4xl tracking-[0.15em] text-brand-200 uppercase mb-2 ml-1 drop-shadow-md opacity-90">
+                Today's Forecast
+            </h2>
+            <h1 class="font-display font-extrabold text-6xl sm:text-7xl lg:text-[5.5rem] xl:text-8xl leading-[0.9] tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-white via-white to-brand-100 drop-shadow-2xl">
+                ZERO<br class="lg:hidden" /> SHOVELING
+            </h1>
+        </div>
+        
+        <p class="text-lg sm:text-xl text-slate-300 leading-relaxed max-w-xl mb-10 font-light border-l-2 border-brand-500/30 pl-6">
+             Unlimited, auto snow removal in West Edmonton—instantly. No contracts, just same-day magic. Claim your effortless winter NOW—<span class="font-bold text-white">zero effort required!</span>
+        </p>
+
+        <!-- Mobile Scroll CTA -->
+        <button 
+            onclick="document.getElementById('pricing-calculator').scrollIntoView({behavior: 'smooth'})"
+            class="lg:hidden w-full mb-10 bg-brand-600 hover:bg-brand-500 text-white font-bold py-4 rounded-xl shadow-lg shadow-brand-900/20 flex items-center justify-center gap-2 transition-all active:scale-95"
+        >
+            <span>View Pricing & Availability</span>
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" /></svg>
+        </button>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12">
+            <!-- Feature 1 -->
+            <div class="flex items-start gap-4 group">
+                <div class="w-10 h-10 rounded-xl bg-brand-500/10 flex items-center justify-center flex-shrink-0 text-brand-400 border border-brand-500/10 group-hover:bg-brand-500/20 group-hover:scale-110 transition-all duration-300">
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                </div>
+                <div>
+                    <h3 class="font-bold text-white text-sm tracking-wide">Fast Response</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed mt-1">We roll out the same day the snow stops.</p>
+                </div>
+            </div>
+            <!-- Feature 2 -->
+            <div class="flex items-start gap-4 group">
+                <div class="w-10 h-10 rounded-xl bg-brand-500/10 flex items-center justify-center flex-shrink-0 text-brand-400 border border-brand-500/10 group-hover:bg-brand-500/20 group-hover:scale-110 transition-all duration-300">
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </div>
+                <div>
+                    <h3 class="font-bold text-white text-sm tracking-wide">Simple Pricing</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed mt-1">One flat monthly rate. Unlimited visits.</p>
+                </div>
+            </div>
+            <!-- Feature 3 -->
+            <div class="flex items-start gap-4 group">
+                <div class="w-10 h-10 rounded-xl bg-brand-500/10 flex items-center justify-center flex-shrink-0 text-brand-400 border border-brand-500/10 group-hover:bg-brand-500/20 group-hover:scale-110 transition-all duration-300">
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                    </svg>
+                </div>
+                <div>
+                    <h3 class="font-bold text-white text-sm tracking-wide">Secure Billing</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed mt-1">Payments handled automatically by Stripe.</p>
+                </div>
+            </div>
+            <!-- Feature 4 -->
+            <div class="flex items-start gap-4 group">
+                <div class="w-10 h-10 rounded-xl bg-brand-500/10 flex items-center justify-center flex-shrink-0 text-brand-400 border border-brand-500/10 group-hover:bg-brand-500/20 group-hover:scale-110 transition-all duration-300">
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    </svg>
+                </div>
+                <div>
+                    <h3 class="font-bold text-white text-sm tracking-wide">Local Crew</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed mt-1">West Edmonton owned and operated.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex items-center gap-4 p-5 glass-panel rounded-2xl max-w-md hover:bg-white/5 transition-colors duration-300">
+            <div class="flex -space-x-3">
+                 <div class="w-9 h-9 rounded-full bg-slate-700 border-2 border-slate-800 flex items-center justify-center text-xs font-bold text-white shadow-lg relative z-0">
+                   95+
+                </div>
+                 <div class="w-9 h-9 rounded-full bg-slate-600 border-2 border-slate-800 flex items-center justify-center text-xs font-bold text-white shadow-lg relative z-10 -ml-2">
+                   😁
+                </div>
+                 <div class="w-9 h-9 rounded-full bg-brand-600 border-2 border-slate-800 flex items-center justify-center text-xs font-bold text-white shadow-lg relative z-20 -ml-2">
+                   👍
+                </div>
+            </div>
+            <div class="flex flex-col">
+                <div class="flex text-accent-500 text-sm gap-0.5">
+                    <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                </div>
+                <span class="text-xs text-slate-300 font-medium mt-0.5">95+ happy West Edmonton neighbours and serving strong</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Pricing Calculator -->
+    <div id="pricing-calculator" class="lg:sticky lg:top-24 w-full flex flex-col justify-center animate-fade-in-up" style="animation-delay: 0.1s;">
+        <div class="relative w-full max-w-md mx-auto">
+             <div class="absolute -inset-1 bg-gradient-to-r from-brand-500 to-accent-500 rounded-2xl blur opacity-25 group-hover:opacity-40 transition duration-1000"></div>
+             
+             <div class="relative bg-white rounded-3xl shadow-card-hover overflow-hidden ring-1 ring-white/20">
+                
+                <div class="bg-slate-50 border-b border-slate-100 p-8 text-center relative overflow-hidden">
+                    <div class="absolute inset-0 bg-brand-50/50"></div>
+                    <h2 class="relative text-2xl font-display font-bold text-slate-900 tracking-tight">Configure Plan</h2>
+                    <p class="relative text-sm text-slate-500 mt-2 font-medium">Simple monthly billing. Pause anytime.</p>
+                </div>
+        
+                <div class="p-8 space-y-6 bg-white">
+                    
+                    <div class="relative p-5 rounded-2xl border-2 border-brand-500 bg-brand-50/60 shadow-sm transition-all duration-300 hover:shadow-md">
+                        <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-brand-600 text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full shadow-lg shadow-brand-500/30">
+                            Core Service
+                        </div>
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="font-bold text-slate-900 text-lg">Front Property</h3>
+                                <p class="text-xs text-slate-500 mt-1 max-w-[180px] leading-relaxed">Includes driveway, walkways to door, and city sidewalks.</p>
+                            </div>
+                            <div class="text-right">
+                                <span class="block text-3xl font-display font-bold text-slate-900 tracking-tight">CA${{ pricing.base }}</span>
+                                <span class="text-xs text-slate-500 font-bold uppercase tracking-wide">/month</span>
+                            </div>
+                        </div>
+                        <div class="mt-4 flex items-center gap-2 text-xs text-brand-700 font-bold bg-brand-100/50 py-2 px-3 rounded-lg w-fit">
+                            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Unlimited Clearing Included
+                        </div>
+                    </div>
+        
+                    <div>
+                        <h4 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-4 pl-1">Optional Upgrades</h4>
+                        <div class="space-y-4">
+                            
+                            <div 
+                                id="toggle-backyard"
+                                class="relative flex items-center justify-between p-4 rounded-xl border-2 cursor-pointer transition-all duration-200 group border-slate-100 bg-white hover:border-slate-300 hover:bg-slate-50 hover:shadow-sm"
+                            >
+                                <div class="flex items-center gap-4">
+                                    <div id="icon-backyard" class="w-6 h-6 rounded-lg border-2 flex items-center justify-center transition-all duration-200 bg-white border-slate-200 text-white shadow-sm">
+                                        <svg class="w-4 h-4 opacity-0 scale-50 transition-all duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" /></svg>
+                                    </div>
+                                    <div>
+                                        <p id="text-backyard" class="text-sm font-bold transition-colors text-slate-700 group-hover:text-slate-900">Backyard Access</p>
+                                        <p class="text-xs text-slate-400 font-medium">Clear deck, dog runs, & BBQ areas.</p>
+                                    </div>
+                                </div>
+                                <div class="text-right">
+                                     <span id="price-backyard" class="text-sm font-bold text-slate-400 group-hover:text-slate-600 transition-colors">+${{ pricing.backyard }}</span>
+                                </div>
+                            </div>
+
+                            <div 
+                                id="toggle-icemelt"
+                                class="relative flex items-center justify-between p-4 rounded-xl border-2 cursor-pointer transition-all duration-200 group border-slate-100 bg-white hover:border-slate-300 hover:bg-slate-50 hover:shadow-sm"
+                            >
+                                <span class="absolute -top-2.5 right-4 bg-accent-500 text-white text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded shadow-sm">
+                                    Recommended
+                                </span>
+                                
+                                <div class="flex items-center gap-4">
+                                    <div id="icon-icemelt" class="w-6 h-6 rounded-lg border-2 flex items-center justify-center transition-all duration-200 bg-white border-slate-200 text-white shadow-sm">
+                                        <svg class="w-4 h-4 opacity-0 scale-50 transition-all duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" /></svg>
+                                    </div>
+                                    <div>
+                                        <p id="text-icemelt" class="text-sm font-bold transition-colors text-slate-700 group-hover:text-slate-900">Premium Ice Melt</p>
+                                        <p class="text-xs text-slate-400 font-medium">Eco-friendly deicer application.</p>
+                                    </div>
+                                </div>
+                                <div class="text-right">
+                                     <span id="price-icemelt" class="text-sm font-bold text-slate-400 group-hover:text-slate-600 transition-colors">+${{ pricing.ice_melt }}</span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+        
+                    <div class="pt-6 border-t border-slate-100">
+                        <div class="flex justify-between items-end mb-6">
+                            <div>
+                                <p class="text-sm text-slate-500 font-bold">Monthly Total</p>
+                                <div class="flex items-center gap-1.5 mt-1 text-emerald-600 bg-emerald-50 px-2 py-1 rounded-md w-fit">
+                                    <span class="relative flex h-2 w-2">
+                                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                                      <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                                    </span>
+                                    <p class="text-[10px] font-bold uppercase tracking-wide">Next-day activation</p>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                 <span id="total-display" class="text-5xl font-display font-extrabold text-slate-900 tracking-tighter">
+                                    ${{ pricing.base }}
+                                 </span>
+                                 <span class="text-sm text-slate-400 ml-1 font-semibold">/mo</span>
+                            </div>
+                        </div>
+        
+                        <button
+                            id="checkout-btn"
+                            class="group relative w-full bg-slate-900 hover:bg-brand-600 text-white font-bold py-4 px-6 rounded-xl transition-all duration-300 shadow-xl shadow-slate-900/20 active:scale-[0.98] active:shadow-none flex items-center justify-center gap-3 overflow-hidden cursor-pointer"
+                        >
+                            <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out"></div>
+                            <span class="text-lg tracking-tight">Proceed to Checkout</span>
+                            <svg class="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                            </svg>
+                        </button>
+                        
+                        <div class="mt-5 flex items-center justify-center gap-2 text-[10px] text-slate-400 uppercase tracking-widest font-bold">
+                            <svg class="w-3 h-3 text-slate-300" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14h-2v-2h2v2zm0-4h-2V7h2v5z"/></svg>
+                            Secure 256-bit SSL Payment via Stripe
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Weather Blog Modal (Django Implementation) -->
+<div id="weather-blog-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6" onclick="toggleWeatherBlog()">
+    <div class="absolute inset-0 bg-slate-900/90 backdrop-blur-md transition-opacity"></div>
+    
+    <div class="relative w-full max-w-4xl bg-slate-900 border border-white/10 rounded-3xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh] animate-fade-in-up" onclick="event.stopPropagation()">
+        <!-- Close -->
+        <button onclick="toggleWeatherBlog()" class="absolute top-4 right-4 z-20 p-2 bg-black/20 hover:bg-black/40 text-white rounded-full backdrop-blur-md transition-all border border-white/10 group">
+             <svg class="w-6 h-6 group-hover:rotate-90 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+        </button>
+
+        <!-- Header -->
+        <div class="relative h-48 sm:h-64 flex-shrink-0 bg-brand-600 overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent to-slate-900/90 z-10"></div>
+            <div class="absolute inset-0 opacity-30 pointer-events-none animate-snow-parallax" style="background-image: url('{{ snow_bg_image|safe }}');"></div>
+            
+            <div class="absolute bottom-6 left-6 z-20">
+                <div class="flex items-center gap-2 mb-2">
+                    <span class="bg-accent-500 text-white text-[10px] font-bold uppercase tracking-widest px-2 py-1 rounded shadow-sm">West End Weather Watch</span>
+                </div>
+                <h2 id="blog-headline" class="font-display font-bold text-3xl sm:text-5xl text-white tracking-tight">West Edmonton Living</h2>
+            </div>
+             <!-- Live Badge -->
+             <div class="absolute top-6 left-6 z-20 flex items-center gap-3 bg-white/10 backdrop-blur-md border border-white/20 p-2 pr-4 rounded-xl">
+                <div id="blog-weather-icon" class="text-2xl">🌥️</div>
+                <div>
+                    <div id="blog-weather-temp" class="text-white font-bold text-lg leading-none">--°C</div>
+                    <div class="text-[10px] text-brand-100 uppercase tracking-wider">Current</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content -->
+        <div class="overflow-y-auto p-6 sm:p-8 space-y-8 bg-slate-900 text-slate-300 custom-scrollbar">
+            <!-- Feature -->
+             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="md:col-span-2 space-y-4">
+                    <div class="flex items-center gap-2 text-brand-400 font-bold text-xs uppercase tracking-widest">
+                        <span class="w-2 h-2 rounded-full bg-brand-400 animate-pulse"></span>
+                        <span id="feature-tag">Home Health</span>
+                    </div>
+                    <h3 id="feature-title" class="text-2xl font-bold text-white">Loading...</h3>
+                    <p id="feature-content" class="text-lg leading-relaxed text-slate-300 border-l-4 border-brand-500/30 pl-4"></p>
+                </div>
+                <!-- Plug -->
+                <div class="bg-brand-900/30 border border-brand-500/20 rounded-2xl p-6 flex flex-col justify-center items-center text-center relative overflow-hidden group">
+                     <div class="absolute inset-0 bg-brand-500/5 group-hover:bg-brand-500/10 transition-colors"></div>
+                     <div id="feature-emoji" class="text-4xl mb-4 grayscale group-hover:grayscale-0 transition-all duration-500">🔥</div>
+                     <h4 class="font-bold text-white mb-2">Rather stay inside?</h4>
+                     <p class="text-xs text-brand-200 mb-4">We handle the cold so you don't have to.</p>
+                     <button onclick="document.getElementById('pricing-calculator').scrollIntoView({behavior: 'smooth'}); toggleWeatherBlog();" class="text-xs font-bold bg-brand-600 text-white px-4 py-2 rounded-lg shadow-lg hover:bg-brand-500 transition-all">Check Availability</button>
+                </div>
+             </div>
+             
+             <div class="h-px bg-white/10 w-full"></div>
+
+             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <!-- DIY -->
+                <div class="bg-slate-800/50 p-6 rounded-2xl border border-white/5 hover:border-white/10 transition-colors">
+                    <div class="flex justify-between items-start mb-3">
+                         <h4 class="font-bold text-white flex items-center gap-2">
+                            <svg class="w-5 h-5 text-accent-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                            Quick DIY Win
+                        </h4>
+                        <span id="diy-difficulty" class="text-[10px] font-bold px-2 py-0.5 rounded text-slate-900 bg-accent-400">Medium</span>
+                    </div>
+                    <h5 id="diy-title" class="font-bold text-brand-100 mb-2">Loading...</h5>
+                    <p id="diy-content" class="text-sm text-slate-400 leading-relaxed"></p>
+                </div>
+                 <!-- Intel -->
+                 <div class="bg-slate-800/50 p-6 rounded-2xl border border-white/5 hover:border-white/10 transition-colors">
+                    <h4 class="font-bold text-white mb-3 flex items-center gap-2">
+                        <svg class="w-5 h-5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /></svg>
+                        West End Intel
+                    </h4>
+                    <ul class="space-y-3">
+                        <li class="text-sm text-slate-400 flex items-start gap-2">
+                            <span class="text-brand-500 font-bold">•</span>
+                            <span><strong>WEM Walking Club:</strong> Doors open 7AM. Entrance 50.</span>
+                        </li>
+                        <li class="text-sm text-slate-400 flex items-start gap-2">
+                            <span class="text-brand-500 font-bold">•</span>
+                            <span><strong>Hardware Update:</strong> Low salt stock reported locally.</span>
+                        </li>
+                    </ul>
+                </div>
+             </div>
+        </div>
+    </div>
+</div>
+
+<!-- Scripts (Weather + Calc + Blog) -->
+<script>
+    let weatherCache = null;
+
+    function toggleWeatherBlog() {
+        const modal = document.getElementById('weather-blog-modal');
+        if (!modal) return;
+        
+        if (modal.classList.contains('hidden')) {
+            modal.classList.remove('hidden');
+            updateBlogContent();
+        } else {
+            modal.classList.add('hidden');
+        }
+    }
+
+    function updateBlogContent() {
+        if (!weatherCache) return;
+        
+        const isSnowing = [71, 73, 75, 77, 85, 86].includes(weatherCache.code) || weatherCache.snow > 0;
+        const isFreezing = weatherCache.temp < -5;
+
+        // Elements
+        const headline = document.getElementById('blog-headline');
+        const icon = document.getElementById('blog-weather-icon');
+        const temp = document.getElementById('blog-weather-temp');
+        
+        // Feature
+        const fTag = document.getElementById('feature-tag');
+        const fTitle = document.getElementById('feature-title');
+        const fContent = document.getElementById('feature-content');
+        const fEmoji = document.getElementById('feature-emoji');
+
+        // DIY
+        const dDiff = document.getElementById('diy-difficulty');
+        const dTitle = document.getElementById('diy-title');
+        const dContent = document.getElementById('diy-content');
+
+        // Header Update
+        if(headline) headline.innerText = isSnowing ? "Snow Day Intel ❄️" : "West Edmonton Living";
+        if(icon) icon.innerText = isSnowing ? '🌨️' : '🌥️';
+        if(temp) temp.innerText = weatherCache.temp + '°C';
+
+        // Content Logic
+        if (isSnowing) {
+            if(fTag) fTag.innerText = "The Pro Strategy";
+            if(fTitle) fTitle.innerText = "Melt Ice Like Us (Don't Waste $$)";
+            if(fContent) fContent.innerText = "Most folks throw salt ON TOP of snow. That's burning money. The secret? Shovel first, then apply a thin layer to break the bond with the pavement. If you're using our service, we handle the heavy clearing, but a quick sprinkle near your door frame keeps the delivery guy safe.";
+            if(fEmoji) fEmoji.innerText = "🧂";
+            
+            if(dDiff) { dDiff.innerText = "Easy"; dDiff.className = "text-[10px] font-bold px-2 py-0.5 rounded text-slate-900 bg-emerald-400"; }
+            if(dTitle) dTitle.innerText = "The 'Draft Detective'";
+            if(dContent) dContent.innerText = "Feel a chill? Light a candle (carefully!) and walk it past your window frames. Flame flicker? You're heating the neighborhood. A $5 tube of caulking fixes that.";
+        } else {
+             if(fTag) fTag.innerText = "Home Health";
+             if(fTitle) fTitle.innerText = "Is Your Furnace Gasping?";
+             if(fContent) fContent.innerText = "When it hits -20°C in West Ed, your furnace runs 24/7. If that filter is grey, your fan motor is working double overtime. Swap it today. It's the cheapest insurance policy against a $5,000 repair bill this winter.";
+             if(fEmoji) fEmoji.innerText = "🔥";
+             
+             if(dDiff) { dDiff.innerText = "Medium"; dDiff.className = "text-[10px] font-bold px-2 py-0.5 rounded text-slate-900 bg-accent-400"; }
+             if(dTitle) dTitle.innerText = "Gutter Sanity Check";
+             if(dContent) dContent.innerText = "Before the next freeze, check those downspouts. If they dump water right beside your foundation, you're asking for a heaved driveway. Add a 4ft extension.";
+        }
+    }
+
+    (function() {
+        async function fetchWeather() {
+            try {
+                const res = await fetch('https://api.open-meteo.com/v1/forecast?latitude=53.5444&longitude=-113.5444&current=temperature_2m,weather_code&daily=snowfall_sum&timezone=America%2FEdmonton');
+                const json = await res.json();
+                
+                if(!json.current) return;
+
+                const temp = Math.round(json.current.temperature_2m);
+                const code = json.current.weather_code;
+                const snow = json.daily.snowfall_sum && json.daily.snowfall_sum[0] ? json.daily.snowfall_sum[0] : 0;
+                
+                weatherCache = { temp, code, snow };
+
+                const widget = document.getElementById('weather-widget');
+                const tempEl = document.getElementById('weather-temp');
+                const descEl = document.getElementById('weather-desc');
+                const iconBg = document.getElementById('weather-icon-bg');
+                const emoji = document.getElementById('weather-emoji');
+                const status = document.getElementById('weather-status');
+
+                if(widget) widget.classList.remove('hidden');
+                if(tempEl) tempEl.innerText = temp + '°C';
+                
+                // WMO Snow Codes: 71, 73, 75, 77, 85, 86
+                const isSnowing = [71, 73, 75, 77, 85, 86].includes(code) || snow > 0;
+                
+                if(isSnowing) {
+                    if(emoji) emoji.innerText = '❄️';
+                    if(iconBg) {
+                        iconBg.classList.remove('bg-slate-700/50');
+                        iconBg.classList.add('bg-gradient-to-br', 'from-brand-400', 'to-brand-600');
+                    }
+                    if(status) status.classList.remove('hidden');
+                    if(descEl) descEl.innerText = snow > 0 ? `${snow}cm accumulation expected` : 'West Edmonton Live Status';
+                } else {
+                    if(emoji) emoji.innerText = '🌥️';
+                    if(descEl) descEl.innerText = 'West Edmonton Live Status';
+                }
+
+            } catch(e) {
+                console.error("Weather fetch failed", e);
+            }
+        }
+        
+        const state = { backyard: false, icemelt: false };
+        const config = {
+            prices: { base: {{ pricing.base }}, backyard: {{ pricing.backyard }}, ice_melt: {{ pricing.ice_melt }} },
+            links: { base: "{{ stripe_links.base }}", baseBackyard: "{{ stripe_links.base_backyard }}", baseIceMelt: "{{ stripe_links.base_icemelt }}", all: "{{ stripe_links.all }}" }
+        };
+
+        function toggleBackyard() { state.backyard = !state.backyard; render(); }
+        function toggleIceMelt() { state.icemelt = !state.icemelt; render(); }
+
+        function render() {
+            updateToggleVisuals('backyard', state.backyard);
+            updateToggleVisuals('icemelt', state.icemelt);
+            let total = config.prices.base;
+            if (state.backyard) total += config.prices.backyard;
+            if (state.icemelt) total += config.prices.ice_melt;
+
+            const totalEl = document.getElementById('total-display');
+            if(totalEl) {
+                totalEl.style.opacity = '0.5';
+                setTimeout(() => {
+                    totalEl.innerText = '$' + total;
+                    totalEl.style.opacity = '1';
+                }, 150);
+            }
+
+            const btn = document.getElementById('checkout-btn');
+            if(btn) {
+                let url = config.links.base;
+                if (state.backyard && !state.icemelt) url = config.links.baseBackyard;
+                if (!state.backyard && state.icemelt) url = config.links.baseIceMelt;
+                if (state.backyard && state.icemelt) url = config.links.all;
+                
+                const newBtn = btn.cloneNode(true);
+                btn.parentNode.replaceChild(newBtn, btn);
+                newBtn.addEventListener('click', () => { window.location.href = url; });
+            }
+        }
+
+        function updateToggleVisuals(key, isActive) {
+            const container = document.getElementById('toggle-' + key);
+            const iconContainer = document.getElementById('icon-' + key);
+            const iconSvg = iconContainer ? iconContainer.querySelector('svg') : null;
+            const textTitle = document.getElementById('text-' + key);
+            const textPrice = document.getElementById('price-' + key);
+
+            if (!container || !iconContainer || !textTitle || !textPrice) return;
+
+            if (isActive) {
+                container.classList.add('border-brand-500', 'bg-brand-50/50', 'ring-1', 'ring-brand-500/20');
+                container.classList.remove('border-slate-100', 'bg-white', 'hover:border-slate-300', 'hover:bg-slate-50');
+                iconContainer.classList.add('bg-brand-500', 'border-brand-500');
+                iconContainer.classList.remove('bg-white', 'border-slate-200');
+                if(iconSvg) { iconSvg.classList.remove('opacity-0', 'scale-50'); iconSvg.classList.add('opacity-100', 'scale-100'); }
+                textTitle.classList.add('text-brand-900'); textTitle.classList.remove('text-slate-700', 'group-hover:text-slate-900');
+                textPrice.classList.add('text-brand-600'); textPrice.classList.remove('text-slate-400', 'group-hover:text-slate-600');
+            } else {
+                container.classList.remove('border-brand-500', 'bg-brand-50/50', 'ring-1', 'ring-brand-500/20');
+                container.classList.add('border-slate-100', 'bg-white', 'hover:border-slate-300', 'hover:bg-slate-50');
+                iconContainer.classList.remove('bg-brand-500', 'border-brand-500');
+                iconContainer.classList.add('bg-white', 'border-slate-200');
+                if(iconSvg) { iconSvg.classList.add('opacity-0', 'scale-50'); iconSvg.classList.remove('opacity-100', 'scale-100'); }
+                textTitle.classList.remove('text-brand-900'); textTitle.classList.add('text-slate-700', 'group-hover:text-slate-900');
+                textPrice.classList.remove('text-brand-600'); textPrice.classList.add('text-slate-400', 'group-hover:text-slate-600');
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const backyardToggle = document.getElementById('toggle-backyard');
+            const iceMeltToggle = document.getElementById('toggle-icemelt');
+            if (backyardToggle) backyardToggle.addEventListener('click', toggleBackyard);
+            if (iceMeltToggle) iceMeltToggle.addEventListener('click', toggleIceMelt);
+            render();
+            fetchWeather();
+        });
+    })();
+</script>
+{% endblock %}

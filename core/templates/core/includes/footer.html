@@ -1,0 +1,81 @@
+<footer class="w-full mt-12 py-8 border-t border-white/10 text-center sm:text-left relative z-20">
+    <div class="flex flex-col md:flex-row justify-between items-center gap-6 text-sm text-slate-400">
+        <div class="flex flex-col sm:flex-row items-center gap-4">
+            <p>&copy; {% now "Y" %} Walks & Lawns Ltd. All rights reserved.</p>
+            <button 
+                onclick="document.getElementById('tos-modal').classList.remove('hidden')" 
+                class="text-xs text-slate-600 hover:text-slate-400 underline transition-colors cursor-pointer"
+            >
+                Terms of Service
+            </button>
+            <a 
+                href="/admin/" 
+                class="text-[10px] text-slate-700 hover:text-slate-500 transition-colors opacity-50 hover:opacity-100"
+                title="Admin Portal Login"
+            >
+                Admin
+            </a>
+        </div>
+        
+        <div class="flex items-center gap-6">
+            <span class="flex items-center gap-2 text-xs sm:text-sm">
+                <svg class="w-4 h-4 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                $2M Liability Insured
+            </span>
+            <span class="flex items-center gap-2 text-xs sm:text-sm">
+                <svg class="w-4 h-4 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                WCB Coverage
+            </span>
+        </div>
+    </div>
+
+    <!-- Legal Modal -->
+    <div id="tos-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-fade-in-up" onclick="this.classList.add('hidden')">
+        <div class="bg-white text-slate-900 rounded-2xl max-w-2xl w-full max-h-[85vh] overflow-y-auto shadow-2xl p-6 sm:p-8 border border-white/20 text-left" onclick="event.stopPropagation()">
+            <div class="flex justify-between items-center mb-6 sticky top-0 bg-white pb-4 border-b border-slate-100 z-10">
+                <h3 class="text-xl font-bold font-display tracking-tight">Terms of Service</h3>
+                <button onclick="document.getElementById('tos-modal').classList.add('hidden')" class="p-2 hover:bg-slate-100 rounded-full transition-colors">
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                </button>
+            </div>
+            <div class="space-y-6 text-xs sm:text-sm leading-relaxed text-slate-600">
+                <p class="italic text-slate-400">Last Updated: October 2024</p>
+                
+                <section>
+                    <h4 class="font-bold text-slate-900 mb-2 uppercase tracking-wide text-[10px]">1. Snow Removal Triggers & Service Window</h4>
+                    <p><strong>Trigger Depth:</strong> Services are automatically dispatched when snowfall accumulation reaches 2.5cm (1 inch) or greater on the ground, as determined by Environment Canada data for West Edmonton or local site assessment.</p>
+                    <p class="mt-2"><strong>Timing:</strong> Clearing will be completed within 24 hours of the snowfall ending (the "Service Window"). We reserve the right to delay service during extreme weather events (-30°C or colder), heavy storms (blizzards), or road closures to ensure crew safety.</p>
+                </section>
+
+                <section>
+                    <h4 class="font-bold text-slate-900 mb-2 uppercase tracking-wide text-[10px]">2. Liability & Property Damage</h4>
+                    <p>Walks & Lawns Ltd. utilizes professional-grade plastic and metal-edged shovels, scrapers, and mechanical blowers. While every reasonable care is exercised:</p>
+                    <ul class="list-disc pl-5 mt-2 space-y-1">
+                        <li><strong>Surface Wear:</strong> Minor scratches, chipping, rust marks, or scraping marks on concrete, asphalt, aggregate, or paving stones are a normal consequence of mechanical snow removal. We are not liable for such aesthetic wear.</li>
+                        <li><strong>Hidden Objects:</strong> We are not responsible for damage to objects hidden in the snow, including but not limited to: extension cords, Christmas lights, toys, garden hoses, planters, or sprinklers.</li>
+                    </ul>
+                </section>
+                
+                <section>
+                    <h4 class="font-bold text-slate-900 mb-2 uppercase tracking-wide text-[10px]">3. Slip & Fall Waiver (Critical)</h4>
+                    <p class="bg-red-50 p-3 rounded-lg border border-red-100 text-red-900">
+                        <strong>Unless the "Premium Ice Melt" add-on is explicitly selected and paid for, our service is strictly limited to the removal of loose snow.</strong>
+                    </p>
+                    <p class="mt-2">We do not chip or scrape ice to bare pavement if it is bonded to the surface. <strong>Walks & Lawns Ltd. assumes no liability for slip-and-fall accidents, injuries, or damages resulting from icy conditions</strong>, freezing rain, melt/freeze cycles, roof runoff, or snow accumulation occurring between scheduled visits.</p>
+                </section>
+
+                <section>
+                    <h4 class="font-bold text-slate-900 mb-2 uppercase tracking-wide text-[10px]">4. Payments & Cancellation</h4>
+                    <p>Subscriptions are billed monthly on a recurring basis via Stripe. You may cancel your service at any time via the Client Portal. Cancellations made mid-month will remain active until the end of the current billing cycle. No pro-rated refunds will be issued for partial months.</p>
+                </section>
+            </div>
+            <div class="mt-8 pt-6 border-t border-slate-100 flex justify-end">
+                <button onclick="document.getElementById('tos-modal').classList.add('hidden')" class="bg-slate-900 text-white px-8 py-3 rounded-xl font-bold text-sm hover:bg-slate-800 transition-all shadow-lg shadow-slate-900/10">I Understand & Agree</button>
+            </div>
+        </div>
+    </div>
+</footer>
